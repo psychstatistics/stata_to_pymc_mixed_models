@@ -1,0 +1,150 @@
+------------------------------------------------------------------------------------------
+      name:  <unnamed>
+  log type:  text
+ opened on:  24 May 2011, 22:09:38
+
+. 
+. **Random intercept model
+. **Variances for random effects
+. **REML
+. xtmixed weight week || id: , var 
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -1016.8984  
+Iteration 1:   log restricted-likelihood = -1016.8984  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs      =       432
+Group variable: id                              Number of groups   =        48
+
+                                                Obs per group: min =         9
+                                                               avg =       9.0
+                                                               max =         9
+
+
+                                                Wald chi2(1)       =  25271.50
+Log restricted-likelihood = -1016.8984          Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------
+      weight |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        week |   6.209896   .0390633   158.97   0.000     6.133333    6.286458
+       _cons |   19.35561   .6031391    32.09   0.000     18.17348    20.53774
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+id: Identity                 |
+                  var(_cons) |   15.14185   3.224448      9.975076    22.98486
+-----------------------------+------------------------------------------------
+               var(Residual) |   4.394709   .3175746      3.814343    5.063379
+------------------------------------------------------------------------------
+LR test vs. linear regression: chibar2(01) =   473.15 Prob >= chibar2 = 0.0000
+
+. 
+. **Random intercept and slope model model
+. **Random effects uncorrleated
+. **Variances for random effects
+. **REML
+. xtmixed weight week || id:week , var 
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -870.51473  
+Iteration 1:   log restricted-likelihood = -870.51473  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs      =       432
+Group variable: id                              Number of groups   =        48
+
+                                                Obs per group: min =         9
+                                                               avg =       9.0
+                                                               max =         9
+
+
+                                                Wald chi2(1)       =   4592.10
+Log restricted-likelihood = -870.51473          Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------
+      weight |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        week |   6.209896   .0916387    67.77   0.000     6.030287    6.389504
+       _cons |   19.35561   .4021144    48.13   0.000     18.56748    20.14374
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+id: Independent              |
+                   var(week) |   .3764405   .0827027      .2447317    .5790317
+                  var(_cons) |   6.917604   1.593247      4.404624    10.86432
+-----------------------------+------------------------------------------------
+               var(Residual) |   1.598784   .1234011      1.374328    1.859898
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =   765.92   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. 
+. **Random intercept and slope model model
+. **Random effects corrleated
+. **Variances for random effects
+. **REML
+. xtmixed weight week || id:week , var cov(un)
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -870.43562  
+Iteration 1:   log restricted-likelihood = -870.43562  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs      =       432
+Group variable: id                              Number of groups   =        48
+
+                                                Obs per group: min =         9
+                                                               avg =       9.0
+                                                               max =         9
+
+
+                                                Wald chi2(1)       =   4552.31
+Log restricted-likelihood = -870.43562          Prob > chi2        =    0.0000
+
+------------------------------------------------------------------------------
+      weight |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+        week |   6.209896   .0920383    67.47   0.000     6.029504    6.390288
+       _cons |   19.35561   .4038678    47.93   0.000     18.56405    20.14718
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+id: Unstructured             |
+                   var(week) |   .3799962   .0839024      .2465106    .5857642
+                  var(_cons) |   6.986472   1.616359      4.439436    10.99482
+             cov(week,_cons) |  -.1033635   .2627315     -.6183078    .4115808
+-----------------------------+------------------------------------------------
+               var(Residual) |   1.596829    .123198      1.372735    1.857505
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(3) =   766.07   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. 
+. 
+. log close
+      name:  <unnamed>
+  log type:  text
+ closed on:  24 May 2011, 22:09:44
+------------------------------------------------------------------------------------------
