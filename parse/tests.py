@@ -29,3 +29,16 @@ class TestClass:
 
         result = grfactor("xtmixed weight12345678 week height farm || pigident12345678: , var")
         assert result['level-2-sub'] == 'pigident12345678'
+
+    def test_fe(self):
+        result = grfactor("xtmixed weight week")  # should we allow models with no random effects?
+        assert 'level-2-sub' not in result  # one approach to handling this
+
+    def test_spacing(self):
+        result = grfactor("xtmixed weight week ||id:")  # no space between || and id
+        assert result['level-2-sub'] == 'id'
+
+    def test_level_3(self):
+        result = grfactor("xtmixed weight week ||farm: ||id:")  # i've always been a little confused about what this actually tells STATA to do...
+        assert result['level-2-sub'] == 'farm'
+        assert result['level-3-sub'] == 'id'
