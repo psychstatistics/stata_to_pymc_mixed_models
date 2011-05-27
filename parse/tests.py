@@ -37,6 +37,10 @@ class TestClass:
     def test_spacing(self):
         result = grfactor("xtmixed weight week ||id:")  # no space between || and id
         assert result['level-2-sub'] == 'id'
+    
+    def test_spacing2(self):
+        result = grfactor("xtmixed weight week ||     id:")  # several spaces between || and id
+        assert result['level-2-sub'] == 'id'        
 
     def test_level_3(self):
         result = grfactor("xtmixed weight week ||farm: ||id:")  # i've always been a little confused about what this actually tells STATA to do...

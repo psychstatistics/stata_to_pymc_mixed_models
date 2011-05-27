@@ -16,7 +16,8 @@ def grfactor(code):
 	parse['dv'] = dv
 	iv = ivdv[1:]
 	parse['iv'] = iv
-	subject2 = re.search(r'(?<=\|\|\s)[\w]*(?=:)', code)
+	subject2 = re.search(r'\|\|(.+)(?=:)', code) ##first get anything between pipes and colon
+	subject2 = re.search(r'\w+', subject2.group())
 	subject2 = subject2.group()
 	parse['level-2-sub']=subject2
 	return parse
