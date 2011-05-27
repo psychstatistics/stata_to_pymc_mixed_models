@@ -20,13 +20,5 @@ def grfactor(code):
 	subject2 = subject2.group()
 	parse['level-2-sub']=subject2
 	return parse
-	
-grfactor("xtmixed weight week || id: , var")
-##do we pick up multiple iv's
-grfactor("xtmixed weight week height farm || id: , var") ##yes
-##What if we have a really long dv
-grfactor("xtmixed weight12345678 week height farm || id: , var") ##yes
-##How about a long level-2 subject factor
-grfactor("xtmixed weight12345678 week height farm || pigident: , var") ##yes
 
 
