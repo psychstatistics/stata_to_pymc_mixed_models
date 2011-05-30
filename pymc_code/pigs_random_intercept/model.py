@@ -12,8 +12,11 @@ tau_u = mc.Lambda('tau_u', lambda v=var_u: v**-1, trace=False)
 
 u = mc.Normal('u', mu=0, tau=tau_u, value=pl.zeros(48))
 
-b0 = mc.Normal('b0', mu=0, tau=100**-1)
-b1 = mc.Normal('b1', mu=0, tau=100**-1)
+##Given starting values as recommended by Abie
+##Could also use the Uniformative prior in PyMC to make it more like Stata
+##TODO: Decide whether using the Uniformative prior is what we'd like as the default for our software
+b0 = mc.Normal('b0', mu=0, tau=100**-1, value=1.)
+b1 = mc.Normal('b1', mu=0, tau=100**-1, value=1.)
 
 var_e = mc.Uniform('var_e', lower=0, upper=50, value=1.)
 tau_e = mc.Lambda('tau_e', lambda e=var_e: e**-1, trace=False)

@@ -5,7 +5,7 @@ from pymc import Matplot
 
 # Sample from full posterior distribution
 M = mc.MCMC(model)
-M.sample(iter=80000, burn=20000, thin=20, verbose=1)
+M.sample(iter=200000, burn=100000, thin=20, verbose=1)
 
 fit = M.stats()
 for k in sorted(fit.keys()):
